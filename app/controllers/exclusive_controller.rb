@@ -1,0 +1,2 @@
+class ExclusiveController < ApplicationController
+end
