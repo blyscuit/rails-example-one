@@ -40,3 +40,4 @@
 
 # Ignore the test coverage results from SimpleCov
 /coverage
+.env
