@@ -2,7 +2,7 @@ exclude:
   - 'node_modules/**'
   - 'coverage/**'
   - 'app/assets/builds/*'
-  - '**/tailwind.css'
+  - 'public/assets/**'
 
 linters:
   BangFormat:
