@@ -37,6 +37,12 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_branch || github.ref }}
 
+      - name: Build Docker image
+        run: bin/docker-prepare && docker compose build
+
+      - name: Push Docker image
+        run: docker compose push web
+
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
         env:
