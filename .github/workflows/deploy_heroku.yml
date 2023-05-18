@@ -41,9 +41,9 @@ jobs:
         run: |
           if [[ $BRANCH_TAG = "latest" ]]
           then
-            echo "HEROKU_APP=ExampleProject" >> $GITHUB_ENV
+            echo "HEROKU_APP=bliss-rails-example" >> $GITHUB_ENV
           else
-            echo "HEROKU_APP=ExampleProject-staging" >> $GITHUB_ENV
+            echo "HEROKU_APP=bliss-rails-example-staging" >> $GITHUB_ENV
           fi
 
       - name: Login to Docker registry
