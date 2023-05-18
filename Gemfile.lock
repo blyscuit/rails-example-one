@@ -165,6 +165,8 @@ GEM
     discard (1.2.1)
       activerecord (>= 4.2, < 8)
     docile (1.4.0)
+    dockerfile-rails (1.2.5)
+      rails
     erubi (1.12.0)
     fabrication (2.30.0)
     faraday (2.7.4)
@@ -222,6 +224,7 @@ GEM
     method_source (1.0.0)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.2)
     minitest (5.18.0)
     msgpack (1.7.0)
     nap (1.1.0)
@@ -236,7 +239,8 @@ GEM
       net-protocol
     nio4r (2.5.9)
     no_proxy_fix (0.1.2)
-    nokogiri (1.15.0-x86_64-darwin)
+    nokogiri (1.15.0)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     nokogiri (1.15.0-x86_64-linux)
       racc (~> 1.4)
@@ -417,7 +421,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    tailwindcss-rails (2.0.29-x86_64-darwin)
+    tailwindcss-rails (2.0.29)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.29-x86_64-linux)
       railties (>= 6.0.0)
@@ -456,6 +460,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   awesome_print
@@ -478,6 +483,7 @@ DEPENDENCIES
   database_cleaner
   devise
   discard
+  dockerfile-rails (>= 1.2)
   fabrication
   ffaker
   figaro
