@@ -43,7 +43,10 @@ jobs:
       - name: Push Docker image
         run: docker compose push web
 
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
+      - name: Start Fly.io
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deploy to Fly.io
+        run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ env.FLY_API_TOKEN }}
