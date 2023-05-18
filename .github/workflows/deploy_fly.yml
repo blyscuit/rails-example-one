@@ -43,7 +43,7 @@ jobs:
       - name: Push Docker image
         run: docker-compose push web
 
-      - name: Start Fly.io
+      - name: Install Fly.io
         uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Deploy to Fly.io
