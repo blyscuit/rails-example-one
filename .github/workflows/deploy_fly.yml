@@ -40,8 +40,8 @@ jobs:
       - name: Build Docker image
         run: bin/docker-prepare && docker compose build
 
-      - name: Push Docker image
-        run: docker-compose push web
+      # - name: Push Docker image
+      #   run: docker compose push web
 
       - name: Install Fly.io
         uses: superfly/flyctl-actions/setup-flyctl@master
