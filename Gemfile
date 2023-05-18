@@ -96,6 +96,7 @@ group :test do
   gem 'vcr' # Gem for recording test suite's HTTP interactions
   gem 'timecop' # Gem for time travel
   gem 'rails-controller-testing' # Gem that allow to use assigns as well ass assert_template
+  gem 'scss_lint' # Lint CSS
 end
 
 group :production do
