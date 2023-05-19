@@ -13,3 +13,6 @@ console_command = "/rails/bin/rails console"
   auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 0
+  
+[env]
+  DEPLOYED_HOST = "sparkling-voice-9562.fly.dev"

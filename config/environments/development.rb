@@ -86,5 +86,5 @@ Rails.application.configure do
     Bullet.add_footer    = true
   end
 
-  config.hosts << "sparkling-voice-9562.fly.dev"
+  config.hosts << ENV["DEPLOYED_HOST"]
 end
