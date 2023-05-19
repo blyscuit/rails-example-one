@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for rails-example-production on 2023-05-19T11:17:37+07:00
+# fly.toml app configuration file generated for sparkling-voice-9562 on 2023-05-18T17:28:53+07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "rails-example-production"
+app = "sparkling-voice-9562"
 primary_region = "hkg"
 console_command = "/rails/bin/rails console"
 
