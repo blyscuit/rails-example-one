@@ -47,6 +47,6 @@ jobs:
         uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Deploy to Fly.io
-        run: flyctl deploy --remote-only --config ./fly.staging.yml
+        run: flyctl deploy --remote-only --config ./fly.staging.toml
         env:
           FLY_API_TOKEN: ${{ env.FLY_API_TOKEN }}
