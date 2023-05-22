@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      post 'products/show'
+    end
+  end
+
   resources :search_terms do
     collection do
       post :import
