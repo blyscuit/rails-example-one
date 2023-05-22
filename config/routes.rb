@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :search_terms do
     collection do
       post :import
+      post :newv
     end
   end
 
