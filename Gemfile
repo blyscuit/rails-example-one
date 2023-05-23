@@ -24,7 +24,7 @@ gem 'pundit' # Minimal authorization through OO design and pure Ruby classes
 gem 'sprockets-rails' # The original asset pipeline for Rails
 gem 'cssbundling-rails' # Bundle and process CSS
 gem 'jsbundling-rails' # Bundle and transpile JavaScript
-gem 'sassc-rails' # Solves issue with sass
+gem 'sassc' # Solves issue with sass
 # gem 'image_processing' # Use Active Storage variants
 
 # Translations
