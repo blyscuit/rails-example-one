@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post 'products/show'
+      post 'search_terms/import'
     end
   end
 
   resources :search_terms do
     collection do
       post :import
-      post :newv
     end
   end
 

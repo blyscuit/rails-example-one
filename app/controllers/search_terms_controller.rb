@@ -15,10 +15,4 @@ class SearchTermsController < ApplicationController
 
     redirect_to request.referer, notice: 'Import started...'
   end
-
-  protect_from_forgery except: :show
-  def newv
-    CsvImportService.new.call(params[:file])
-    render json: "OK"
-  end
 end
