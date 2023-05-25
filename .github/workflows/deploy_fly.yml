@@ -50,9 +50,9 @@ jobs:
         run: |
           if [[ $BRANCH_TAG = "latest" ]]
           then
-            flyctl deploy --remote-only --config ./fly.production.toml
+            flyctl deploy --local-only --config ./fly.production.toml
           else
-            flyctl deploy --remote-only --config ./fly.staging.toml
+            flyctl deploy --local-only --config ./fly.staging.toml
           fi
         env:
           FLY_API_TOKEN: ${{ env.FLY_API_TOKEN }}
