@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  use_doorkeeper do
+    skip_controllers :authorizations, :applications, :authorized_applications, :home
+  end
 
   resources :search_terms do
     collection do
