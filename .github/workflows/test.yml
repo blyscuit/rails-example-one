@@ -8,7 +8,7 @@ on:
       - main
 
 env:
-  DANGER_GITHUB_API_TOKEN: ${{ github.token }}
+  DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
   DOCKER_REGISTRY_HOST: ${{ secrets.DOCKER_REGISTRY_HOST }}
   DOCKER_REGISTRY_USERNAME: ${{ github.repository_owner }}
   DOCKER_REGISTRY_TOKEN: ${{ secrets.DOCKER_REGISTRY_TOKEN }}
@@ -98,7 +98,9 @@ jobs:
         run: docker-compose pull test || true
 
       - name: Run unit tests
-        run: docker-compose run test bundle exec rspec --exclude-pattern "spec/systems/**/*_spec.rb, spec/codebase/codebase_spec.rb" --profile --format progress
+        run: |
+          docker-compose run test bundle exec rake db:test:prepare
+          docker-compose run test bundle exec rspec --exclude-pattern "spec/systems/**/*_spec.rb, spec/codebase/codebase_spec.rb" --profile --format progress
 
       - name: Upload tests coverage artifact
         uses: actions/upload-artifact@v3
