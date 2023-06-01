@@ -15,20 +15,6 @@ ActiveRecord::Schema.define(version: 2023_05_26_085015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "exclusives", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "keyword_owners", force: :cascade do |t|
-    t.bigint "keyword_id", null: false
-    t.bigint "owner_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["keyword_id"], name: "index_keyword_owners_on_keyword_id"
-    t.index ["owner_id"], name: "index_keyword_owners_on_owner_id"
-  end
-
   create_table "keyword_users", force: :cascade do |t|
     t.bigint "keyword_id", null: false
     t.bigint "user_id", null: false
@@ -72,12 +58,6 @@ ActiveRecord::Schema.define(version: 2023_05_26_085015) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
-  create_table "owners", force: :cascade do |t|
-    t.string "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "search_terms", force: :cascade do |t|
     t.string "keyword"
     t.datetime "created_at", precision: 6, null: false
@@ -96,8 +76,6 @@ ActiveRecord::Schema.define(version: 2023_05_26_085015) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "keyword_owners", "keywords"
-  add_foreign_key "keyword_owners", "owners"
   add_foreign_key "keyword_users", "keywords"
   add_foreign_key "keyword_users", "users"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
