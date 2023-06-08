@@ -20,7 +20,8 @@ gem 'nokogiri' # XML and HTML Fetcher and Parser
 # Authentications & Authorizations
 gem 'devise' # Authentication solution for Rails with Warden
 gem 'pundit' # Minimal authorization through OO design and pure Ruby classes
-gem 'doorkeeper' # OAuth 2 provider functionality to Ruby on Rails
+gem 'doorkeeper', '5.5' # OAuth 2 provider functionality to Ruby on Rails
+gem 'doorkeeper-grants_assertion' # 3rd party assertion grant extension for Doorkeeper
 
 # Assets
 gem 'sprockets-rails' # The original asset pipeline for Rails

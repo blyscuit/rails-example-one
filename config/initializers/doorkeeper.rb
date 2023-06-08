@@ -17,8 +17,17 @@ Doorkeeper.configure do
     User.authenticate(params[:email], params[:password])
   end
 
+  resource_owner_from_assertion do
+    google = URI.parse('https://www.googleapis.com/oauth2/v3/userinfo?access_token=' +
+      params[:assertion])
+    response = Net::HTTP.get_response(google)
+    data = JSON.parse(response.body)
+
+    User.authenticate(data['email'], data['sub'])
+  end
+
   # enable password grant
-  grant_flows %w[password]
+  grant_flows %w[password assertion]
 
   allow_blank_redirect_uri true
 
@@ -27,6 +36,7 @@ Doorkeeper.configure do
   end
   
   use_refresh_token
+
   # If you didn't skip applications controller from Doorkeeper routes in your application routes.rb
   # file then you need to declare this block in order to restrict access to the web interface for
   # adding oauth authorized applications. In other case it will return 403 Forbidden response
