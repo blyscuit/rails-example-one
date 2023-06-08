@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       post 'products/show'
       post 'search_terms/import'
       resources :users, only: %i[create]
+      resources :google_users, only: %i[create]
       resources :search_terms do
         collection do
           get :match
