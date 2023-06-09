@@ -42,5 +42,7 @@ module ExampleProject
     config.middleware.use Rack::Deflater
 
     config.hosts << ENV["DEPLOYED_HOST"]
+
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

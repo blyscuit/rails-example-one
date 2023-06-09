@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+require 'external_auth/google_auth'
+
 Doorkeeper.configure do
+
   # Change the ORM that doorkeeper will use (requires ORM extensions installed).
   # Check the list of supported ORMs here: https://github.com/doorkeeper-gem/doorkeeper#orms
   orm :active_record
@@ -18,12 +21,12 @@ Doorkeeper.configure do
   end
 
   resource_owner_from_assertion do
-    google = URI.parse('https://www.googleapis.com/oauth2/v3/userinfo?access_token=' +
-      params[:assertion])
-    response = Net::HTTP.get_response(google)
-    data = JSON.parse(response.body)
-
-    User.authenticate(data['email'], data['sub'])
+    provider = params[:provider]
+    if provider == "google"
+      g = ExternalAuth::GoogleAuth.new(params[:assertion])
+      data = g.get_user!
+      User.authenticate(data['email'], data['sub']) if data.present?
+    end
   end
 
   # enable password grant
