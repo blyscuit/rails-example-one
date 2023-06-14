@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       end
       get 'user/me'
       post 'keyword/crawl'
+      resources :background
     end
   end
 
